@@ -51,6 +51,10 @@
     font-size: 17px;
 }
 
+.product-dietary-list {
+    padding-top: 35px;
+}
+
 .product-main-dietary {
     padding: 7px 13px;
     display: inline-block;
@@ -121,7 +125,6 @@
     font-weight: bold;
     line-height: 48px;
     color: #0073ae;
-    padding-left: 13px;
 }
 
 .product-main-serving {
@@ -169,7 +172,6 @@
 .product-main-details {
     display: flex;
     align-items: center;
-    padding-top: 35px;
 }
 
 .product-main-description {
