@@ -34,15 +34,28 @@
                     <div class="product-main-title">
                         <h2>{{ ez_content_name(content) }}</h2>
                     </div>
+                    <div class="checkout">
+                        <div class="product-main-price">$ {{ ez_field_value(content, 'price').value|number_format(2, '.') }}</div>
+                        <div class="product-main-add">
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addModal">
+                                <i class="fa fa-shopping-basket fa-lg"></i> {{ 'Add to cart'|trans }}
+                            </button>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div class="product-main-description">
+                        {{ ez_render_field(content, 'description') }}
+                    </div>
+
                     <div class="row product-main-details">
-                        <div class="col-md-4 product-main-price">$ {{ ez_field_value(content, 'price').value|number_format(2, '.') }}</div>
-                        <div class="col-md-3 product-main-serving">
+                        <div class="col-md-6 product-main-serving">
                             <div class="product-main-serving-icon"></div>
                             <div class="serving-label">
                                 {{ ez_render_field(content, 'serving') }} {{ 'servings'|trans }}
                             </div>
                         </div>
-                        <div class="col-md-5 product-main-spicy">
+                        <div class="col-md-6 product-main-spicy">
                             {% if ez_field_value(content, 'spicy').selection is not empty %}
                                 {% set spicy_level = ez_field_value(content, 'spicy').selection.0 %}
                                 <div class="spicy-label">{{ 'Spicy Level:'|trans }}</div>
@@ -52,14 +65,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="product-main-description">
-                        {{ ez_render_field(content, 'description') }}
-                    </div>
-                    <div class="product-main-add">
-                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addModal">
-                            <i class="fa fa-shopping-basket fa-lg"></i> {{ 'Add to cart'|trans }}
-                        </button>
-                    </div>
+
                     <div class="product-dietary-list">
                         <h3>{{ 'Dietary restrictions'|trans }}</h3>
                         {% if ez_field_value(content, 'dairy').bool %}
